@@ -4,12 +4,16 @@ export interface Subscriber<T> {
     next?: (value: T) => void
     error?: (error: any) => void
     complete?: () => void
+    pause?: () => void
+    resume?: () => void
 }
 
 export type ObserverFn<T> = (obs: {
     next: (value: T | ((curr: T) => T)) => void
     error: (err: any) => void
     complete: () => void
+    pause?: () => void
+    resume?: () => void
 }) => Unsubscribe | void
 
 export class Stream<T> {

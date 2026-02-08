@@ -7,10 +7,13 @@ export class Stream {
         this.initialNotify = initialNotify
         this.queue = new Set()
         this.hasPendingUpdates = false
+
+        this.paused = false
     }
 
     _processQueue() {
         this.hasPendingUpdates = false
+        if (this.paused) return
         this.queue.forEach(sub => sub.next?.(this.get()))
         this.queue.clear()
     }
@@ -23,10 +26,12 @@ export class Stream {
         this.destroyFn?.()
         this.subscribers.clear()
         this.observerCalled = false
+        this.paused = false
+        this.pendingUpdate = undefined
     }
 
     subscribe(subscriber, immediate = false) {
-        let { next, error, complete } = subscriber
+        let { next, error, complete, pause, resume } = subscriber
         if (!next) {
             if (typeof subscriber === 'function') next = subscriber
         }
@@ -36,7 +41,13 @@ export class Stream {
         if (!complete) {
             complete = () => {}
         }
-        const subscriberObj = { next, error, complete }
+        if (!pause) {
+            pause = () => {}
+        }
+        if (!resume) {
+            resume = () => {}
+        }
+        const subscriberObj = { next, error, complete, pause, resume }
 
         this.subscribers.add(subscriberObj)
         if (!this.observerCalled && this.observer) {
@@ -45,6 +56,8 @@ export class Stream {
                 next: this.next.bind(this),
                 error: this.error.bind(this),
                 complete: this.complete.bind(this),
+                pause: this.pause.bind(this),
+                resume: this.resume.bind(this),
             })
         }
         if (this.initialNotify || immediate) subscriberObj.next?.(this.internalValue)
@@ -71,6 +84,18 @@ export class Stream {
             subscriber.error(err)
         })
     }
+
+    pause() {
+        this.paused = true
+        this.subscribers.forEach(sub => sub.pause())
+    }
+
+    resume() {
+        if (!this.paused) return
+        this.paused = false
+        this.subscribers.forEach(sub => sub.resume())
+    }
+
     complete() {
         this.subscribers.forEach(subscriber => {
             subscriber.complete()
@@ -78,6 +103,9 @@ export class Stream {
         this.cleanup()
     }
     next(value) {
+        if (this.paused) {
+            return
+        }
         let newValue = value
         const currValue = this.get()
         if (typeof value === 'function') {
@@ -115,6 +143,12 @@ export class Stream {
                     },
                     complete() {
                         obs.complete()
+                    },
+                    pause() {
+                        obs.pause()
+                    },
+                    resume() {
+                        obs.resume()
                     },
                 })
                 return () => {

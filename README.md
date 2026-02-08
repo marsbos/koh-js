@@ -23,7 +23,23 @@ _Bring static HTML to life with reactive islands_
 - **Tiny footprint**: core 2.3kb, streams 3kb, operators <1kb
 
 - **SSR-friendly**: works `directly` on static HTML without hydration
+
 - **Zero dependencies**: batteries are included
+
+- **Pause & resume any stream**  
+  Streams can be paused and resumed at any time — without state drift.  
+  Time never owns state; streams do.
+
+### Why pause/resume works correctly
+
+In Koh.js, time-based producers never own state.
+They emit transformations (`c => c + 1`), not values.
+
+This means:
+
+- pausing stops emissions
+- resuming continues from the last known state
+- elapsed time never causes unexpected jumps
 
 ---
 
@@ -294,6 +310,8 @@ The core of Koh.js revolves around islands: isolated, reactive components bound 
 ### Streams
 
 Streams are the core reactive primitive in Koh.js. A stream represents a value that changes over time and can be observed, transformed, and composed.
+
+_All streams can be paused and resumed_ using `.pause()` or `.resume()`
 
 - **`Stream<T>`** – Reactive container  
   Holds the current value and notifies subscribers when it changes.  

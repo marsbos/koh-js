@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+
+        <title>Koh.js - TPL Island</title>
+    </head>
+    <body class="bg-gray-100 p-8">
+        <header class="bg-white p-4 shadow-md flex justify-between items-center mb-10">
+            <h2 class="text-xl text-gray-500">🏝️ Koh.js - TPL Island!</h2>
+        </header>
+
+        <section class="flex flex-col lg:flex-row gap-5">
+            <div class="flex-1/4">
+                <h1 class="text-lg">This example demonstrates the use of:</h1>
+                <ul class="flex flex-col gap-3">
+                    <li class="mt-3">
+                        <b class="feature"></b>
+                    </li>
+                    <li>
+                        <b class="feature"></b>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-3/4">
+                <tpl-island name="hello-island">
+                    <h3>
+                        &lt;tpl-island&nbsp;/&gt; with
+                        <b>inline</b>
+                        js
+                    </h3>
+
+                    <script type="module"></script>
+                </tpl-island>
+            </div>
+        </section>
+    </body>
+</html>
