@@ -59,6 +59,14 @@ a {
     max-width: 600px;
 }
 
+.linkList > li {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
 [name*='-island'] {
     display: block;
     background: var(--bg-card);
@@ -148,9 +156,12 @@ ul > li {
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     margin-bottom: 24px;
-    max-width: 600px;
 }
 .listing > li > div {
     display: flex;
     gap: 0.8rem;
+}
+
+.label {
+    color: var(--text-muted);
 }

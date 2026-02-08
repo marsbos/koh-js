@@ -5,6 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./styles.css" />
 
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+        />
+
         <title>Koh.js - Hello Island</title>
     </head>
     <body class="bg-gray-100 p-8">
@@ -12,7 +17,7 @@
             <h2 class="text-xl text-gray-500">🏝️ Koh.js - Hello Island!</h2>
         </header>
 
-        <section class="flex flex-col lg:flex-row gap-5">
+        <section class="flex flex-col lg:flex-row gap-20">
             <div class="flex-1/4">
                 <h1 class="text-lg">This example demonstrates the use of:</h1>
                 <ul class="flex flex-col gap-3 mb-5">
@@ -30,7 +35,8 @@
                     </li>
                 </ul>
 
-                <pre><code class="language-javascript">
+                <div class="mt-8 max-w-md">
+                    <pre><code class="language-javascript">
 // hello-island.js file
 
 import { island } from './static/koh-js/core'
@@ -51,16 +57,14 @@ island('hello-island', k => {
 })
                 </code>
                 </pre>
+                </div>
+
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
             </div>
 
             <div class="flex-3/4">
                 <hello-island name="hello-island">
-                    <h3>
-                        &lt;hello-island&nbsp;/&gt; with
-                        <b>imported</b>
-                        island module
-                    </h3>
+                    <h3>&lt;hello-island&nbsp;/&gt; self-contained island module</h3>
                     <p class="my-3">
                         Count:
                         <span>0</span>
@@ -74,11 +78,7 @@ island('hello-island', k => {
                 </hello-island>
 
                 <hello-island name="hello-island">
-                    <h3>
-                        &lt;hello-island&nbsp;/&gt; with
-                        <b>imported</b>
-                        island module
-                    </h3>
+                    <h3>&lt;hello-island&nbsp;/&gt; self-contained island module</h3>
                     <p class="my-3">
                         Count:
                         <span>0</span>
@@ -92,11 +92,7 @@ island('hello-island', k => {
                 </hello-island>
 
                 <hello-island name="hello-island">
-                    <h3>
-                        &lt;hello-island&nbsp;/&gt; with
-                        <b>imported</b>
-                        island module
-                    </h3>
+                    <h3>&lt;hello-island&nbsp;/&gt; self-contained island module</h3>
                     <p class="my-3">
                         Count:
                         <span>0</span>
