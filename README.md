@@ -55,6 +55,7 @@ public/
       ├─ core/index.js
       ├─ stream/index.js
       ├─ operators/index.js
+      └─ index.js
       └─ index.d.ts
 ```
 
@@ -267,7 +268,7 @@ The core of Koh.js revolves around islands: isolated, reactive components bound 
   Updates automatically when the stream emits a new value.
 
 - **`k.foreach(target, config)`** – Render reactive lists  
-  Renders an array-stream into the DOM using keyed diffing.  
+  Renders an array-stream into the DOM using keyed reconciliation.  
   Only changed items are added, updated, or removed.
 
 - **`k.on(selector, event, handler)`** – Event binding  
