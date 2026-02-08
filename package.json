@@ -51,11 +51,11 @@
     },
     "scripts": {
         "dev": "vite",
-        "preview": "npm run build && serve examples",
+        "preview": "npm run build && serve docs",
         "clean": "rimraf dist",
         "prebuild": "npm run clean",
         "build": "node build.js",
-        "format": "prettier --write \"src/**/*.{js,ts}\" \"examples/**/*.{js,ts,html}\"",
+        "format": "prettier --write \"src/**/*.{js,ts}\" \"docs/**/*.{js,ts,html}\"",
         "format:check": "prettier --check ."
     },
     "devDependencies": {

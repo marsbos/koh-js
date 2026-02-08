@@ -4,7 +4,7 @@ import fs from 'fs'
 import { execSync } from 'child_process'
 
 const distPath = './dist'
-const examplesStaticPath = './examples/static/koh-js'
+const examplesStaticPath = './docs/static/koh-js'
 
 // 1. Cleanup dist
 if (fs.existsSync(distPath)) {
@@ -75,7 +75,7 @@ esbuild
             recursive: true,
         })
 
-        console.log('📦 Copied build (including types) to examples/static/koh-js')
+        console.log('📦 Copied build (including types) to docs/static/koh-js')
     })
     .catch(err => {
         console.error('❌ Build failed:', err)
