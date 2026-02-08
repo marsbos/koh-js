@@ -1,5 +1,5 @@
-import { island } from './static/koh-js/core'
-import { fromValue } from './static/koh-js/stream'
+import { island } from './static/koh-js/core/index.js'
+import { fromValue } from './static/koh-js/stream/index.js'
 island('hello-island', k => {
     const count$ = fromValue(0)
 

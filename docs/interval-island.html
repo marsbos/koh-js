@@ -38,9 +38,9 @@
                     <button name="start">Resume</button>
 
                     <script type="module">
-                        import { island } from './static/koh-js/core'
-                        import { fromInterval } from './static/koh-js/stream'
-                        import { startWith } from './static/koh-js/operators'
+                        import { island } from './static/koh-js/core/index.js'
+                        import { fromInterval } from './static/koh-js/stream/index.js'
+                        import { startWith } from './static/koh-js/operators/index.js'
 
                         island('interval-island', k => {
                             const timer$ = fromInterval(1000)

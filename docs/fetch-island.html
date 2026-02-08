@@ -46,21 +46,21 @@
                 <div id="buttons" class="mt-3 flex gap-2 justify-center"></div>
 
                 <script type="module">
-                    import { island } from './static/koh-js/core'
+                    import { island } from './static/koh-js/core/index.js'
                     import {
                         fromEvent,
                         fromValue,
                         fromInterval,
                         fromFetch,
                         fromMerge,
-                    } from './static/koh-js/stream'
+                    } from './static/koh-js/stream/index.js'
                     import {
                         map,
                         debounce,
                         startWith,
                         tap,
                         filter,
-                    } from './static/koh-js/operators'
+                    } from './static/koh-js/operators/index.js'
 
                     island('fetch-island', k => {
                         const loading$ = fromValue(false)
