@@ -30,17 +30,6 @@ _Bring static HTML to life with reactive islands_
   Streams can be paused and resumed at any time — without state drift.  
   Time never owns state; streams do.
 
-### Why pause/resume works correctly
-
-In Koh.js, time-based producers never own state.
-They emit transformations (`c => c + 1`), not values.
-
-This means:
-
-- pausing stops emissions
-- resuming continues from the last known state
-- elapsed time never causes unexpected jumps
-
 ---
 
 ## Demo / Examples
