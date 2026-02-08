@@ -1,0 +1,1 @@
+var i=r=>{let t,e;return(o,s)=>(e?.(s()),t&&clearTimeout(t),new Promise(n=>{e=n,t=setTimeout(()=>{n(o),e=null},r)}))};var u=r=>async(t,e)=>await r(t)?t:e();var p=r=>async t=>await r(t);var f=r=>{let t=!0;return async e=>t?(t=!1,r):e};var a=r=>t=>(r(t),t);export{i as debounce,u as filter,p as map,f as startWith,a as tap};
