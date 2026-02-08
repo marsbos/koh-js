@@ -43,6 +43,12 @@ This means:
 
 ---
 
+## Demo / Examples
+
+You can check out live examples and demos in the [Docs folder](./docs) or via GitHub Pages:
+
+[🏝️ Live Demos](https://marsbos.github.io/koh-js/)
+
 ## Installation
 
 ### 1. Via npm
