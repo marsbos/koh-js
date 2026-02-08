@@ -84,7 +84,7 @@ The callback argument `k` is your entire island API. Everything related to state
 
 1. `k.sync()` binds a stream to an element’s text, attribute, or a custom update function
 
-2. `k.foreach()` renders and updates lists efficiently using DOM diffing
+2. `k.foreach()` renders and updates lists efficiently using efficient key reconciliation
 
 3. `k.show()` and `k.hide()` toggle element visibility reactively
 
