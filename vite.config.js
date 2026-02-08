@@ -12,6 +12,6 @@ export default defineConfig({
         },
     },
     server: {
-        open: '/examples/mini-cart.html',
+        open: '/examples/index.html',
     },
 })

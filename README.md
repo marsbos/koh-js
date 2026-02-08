@@ -568,6 +568,8 @@ Koh.js is not a full SPA framework.
 It does not aim to replace React, Vue, or similar libraries.
 Instead, it focuses on enhancing existing server-rendered or static HTML with small, isolated, reactive islands.
 
+_No build step._
+_No compilation._
 _No hydration._
 _No virtual DOM._
 _No global state._

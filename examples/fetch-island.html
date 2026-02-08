@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./style.css" />
 
-        <title>Koh JS - Fetch Island</title>
+        <title>Koh.js - Fetch Island</title>
         <style>
             :root {
                 /* Koh JS Brand Colors */
@@ -138,21 +138,8 @@
     </head>
     <body class="bg-gray-100 p-8">
         <header class="bg-white p-4 shadow-md flex justify-between items-center mb-10">
-            <h1 class="text-xl text-gray-500">koh-js - Fetch Island!</h1>
+            <h1 class="text-xl text-gray-500">Koh.js - Fetch Island!</h1>
         </header>
-
-        <nav-button id="navButton" data-template hidden>
-            <div>
-                <button>CLICK</button>
-            </div>
-            <script type="module">
-                import { island } from './static/koh-js/core'
-                island('nav-button', k => {
-                    const data = k.initialData
-                    console.log({ data })
-                })
-            </script>
-        </nav-button>
 
         <fetch-island>
             <ul id="users" class="flex flex-col gap-2 mx-auto w-md"></ul>
