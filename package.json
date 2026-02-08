@@ -55,10 +55,12 @@
         "clean": "rimraf dist",
         "prebuild": "npm run clean",
         "build": "node build.js",
+        "build:css": "tailwindcss -i ./docs/input.css -o ./docs/styles.css --minify",
         "format": "prettier --write \"src/**/*.{js,ts}\" \"docs/**/*.{js,ts,html}\"",
         "format:check": "prettier --check ."
     },
     "devDependencies": {
+        "@tailwindcss/cli": "^4.1.18",
         "@tailwindcss/vite": "^4.1.18",
         "autoprefixer": "^10.4.23",
         "esbuild": "^0.27.2",
