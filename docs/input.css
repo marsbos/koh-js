@@ -74,7 +74,6 @@ a {
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     margin-bottom: 24px;
-    max-width: 600px;
 }
 
 h1 {

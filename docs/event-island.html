@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./styles.css" />
 
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+        />
         <title>Koh.js - Event Island</title>
     </head>
     <body class="bg-gray-100 p-8">
@@ -12,22 +16,43 @@
             <h2 class="text-xl text-gray-500">🏝️ Koh.js - Event Island!</h2>
         </header>
 
-        <section class="flex flex-col lg:flex-row gap-20">
-            <div class="flex-1/4">
-                <h1 class="text-lg">This example demonstrates the use of:</h1>
-                <ul class="flex flex-col gap-3">
-                    <li class="mt-3">
-                        <b class="feature">fromEvent:</b>
-                        create an event stream
-                    </li>
-                    <li>
-                        <b class="feature">debounce operator:</b>
-                        waits given ms after the last value before emitting, reducing rapid updates
-                    </li>
-                </ul>
+        <h1 class="text-lg">This example demonstrates the use of:</h1>
+        <ul class="flex flex-col gap-3 mb-5">
+            <li class="mt-3">
+                <b class="feature">fromEvent:</b>
+                create an event stream
+            </li>
+            <li>
+                <b class="feature">debounce operator:</b>
+                waits given ms after the last value before emitting, reducing rapid updates
+            </li>
+        </ul>
+        <section class="flex flex-col lg:flex-row gap-10 lg:gap-20">
+            <div class="flex-2/4 order-1 lg:order-0">
+                <div>
+                    <pre><code class="language-javascript">
+import { island } from './static/koh-js/core/index.js'
+import { fromEvent } from './static/koh-js/stream/index.js'
+import { debounce, map } from './static/koh-js/operators/index.js'
+
+island('event-island', k => {
+    // create a stream from input events, debounce 500ms
+    const search$ = fromEvent(k.qs('[name="query"]'), 'input').pipe(
+        debounce(500),
+        // map event to value
+        map(e => e.target.value)
+    )
+
+    // automatically update the span text
+    k.sync('span', search$)
+})                  
+                </code>
+                </pre>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
             </div>
 
-            <div class="flex-3/4">
+            <div class="flex-2/4">
                 <event-island name="interval-island">
                     <h3>&lt;event-island&nbsp;/&gt;</h3>
 
@@ -39,7 +64,7 @@
 
                         <p class="mt-5">
                             Debounced value:
-                            <span class="feature">...</span>
+                            <span class="feature wrap-break-word">...</span>
                         </p>
                     </div>
 
