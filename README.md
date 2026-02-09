@@ -34,7 +34,7 @@ _Bring static HTML to life with reactive islands_
 
 ## Demo / Examples
 
-You can check out live examples and demos in the [Docs folder](https://github.com/marsbos/koh-js/blob/main/docs) or via GitHub Pages:
+You can check out live examples and demos in the [Docs folder](https://github.com/marsbos/koh-js/tree/main/docs) or via GitHub Pages:
 
 [🏝️ Live Demos](https://marsbos.github.io/koh-js/)
 
