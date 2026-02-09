@@ -4,7 +4,7 @@
     /* Koh JS Brand Colors */
     --primary: #40e0d0;
     --primary-light: #b6e7e1;
-    --primary-dark: #20b2aa;
+    --primary-dark: #1b9f98;
     --secondary: #ff7f50;
     --secondary-light: #fda281;
     --secondary-dark: #e66e41;
@@ -13,7 +13,8 @@
     --bg-main: #f4f7f6;
     --bg-card: #ffffff;
     --text-main: #2d3436;
-    --text-muted: #636e72;
+    --text-muted: #697c7a;
+    --text-light: #d4edee;
     --text-primary: var(--primary-dark);
     --text-secondary: var(--secondary-dark);
 
@@ -80,6 +81,16 @@ h1 {
     color: var(--text-muted);
     margin-top: 0;
 }
+
+.badge {
+    background-color: var(--bg-main);
+    padding: 0.8rem;
+    /* border: 1px solid; */
+    color: var(--text-muted);
+    /* border-color: var(--text-light); */
+    border-radius: 6px;
+}
+
 h2,
 h3 {
     color: var(--text-secondary);

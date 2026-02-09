@@ -1,7 +1,7 @@
 import { Stream } from './stream'
 
 export const fromMerge = (...streams) => {
-    const merged$ = new Stream(null, null, false)
+    const merged$ = new Stream(null, null, true)
 
     const values = []
     const subscriber = idx => value => {

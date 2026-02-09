@@ -38,10 +38,10 @@ import { startWith } from './static/koh-js/operators/index.js'
 island('interval-island', k => {
     const timer$ = fromInterval(1000)
 
-    // // Automatically update the span text whenever the stream changes
+    // // Automatically update the span text whenever the interval stream changes
     k.sync('span', timer$)
 
-    // Listen for clicks and increment or decrement the stream
+    // Listen for clicks and pause or resume the stream
     k.on('[name="stop"]', 'click', () => {
         timer$.pause()
     })
@@ -73,10 +73,10 @@ island('interval-island', k => {
                         island('interval-island', k => {
                             const timer$ = fromInterval(1000)
 
-                            // // Automatically update the span text whenever the stream changes
+                            // // Automatically update the span text whenever the interval stream changes
                             k.sync('span', timer$)
 
-                            // Listen for clicks and increment or decrement the stream
+                            // Listen for clicks and pause or resume the stream
                             k.on('[name="stop"]', 'click', () => {
                                 timer$.pause()
                             })

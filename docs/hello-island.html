@@ -27,19 +27,13 @@
                 <b class="feature">on:</b>
                 Basic events (click events are used here)
             </li>
-            <li>
-                <b class="feature">Multiple isolated islands:</b>
-                re-use the same island multiple times.
-            </li>
         </ul>
         <section class="flex flex-col lg:flex-row gap-10 lg:gap-20">
             <div class="flex-2/4 order-1 lg:order-0">
                 <div>
                     <pre><code class="language-javascript">
-// hello-island.js file
-
-import { island } from './static/koh-js/core'
-import { fromValue } from './static/koh-js/stream'
+import { island } from './static/koh-js/core/index.js'
+import { fromValue } from './static/koh-js/stream/index.js'
 island('hello-island', k => {
     const count$ = fromValue(0)
 
@@ -53,8 +47,7 @@ island('hello-island', k => {
     k.on('[name="decrement"]', 'click', () => {
         count$.next(c => c - 1)
     })
-})
-                </code>
+})</code>
                 </pre>
                 </div>
 
@@ -63,43 +56,31 @@ island('hello-island', k => {
 
             <div class="flex-2/4">
                 <hello-island name="hello-island">
-                    <h3>&lt;hello-island&nbsp;/&gt; self-contained island module</h3>
+                    <h3>&lt;hello-island&nbsp;/&gt;</h3>
                     <p class="my-3">
                         Count:
                         <span>0</span>
                     </p>
-                    <button name="increment">Increment</button>
-                    <button name="decrement">Decrement</button>
+                    <button name="increment">+</button>
+                    <button name="decrement">-</button>
 
                     <script type="module">
-                        import './hello-island.js'
-                    </script>
-                </hello-island>
+                        import { island } from './static/koh-js/core/index.js'
+                        import { fromValue } from './static/koh-js/stream/index.js'
+                        island('hello-island', k => {
+                            const count$ = fromValue(0)
 
-                <hello-island name="hello-island">
-                    <h3>&lt;hello-island&nbsp;/&gt; self-contained island module</h3>
-                    <p class="my-3">
-                        Count:
-                        <span>0</span>
-                    </p>
-                    <button name="increment">Increment</button>
-                    <button name="decrement">Decrement</button>
+                            // Automatically update the span text whenever the stream changes
+                            k.sync('span', count$)
 
-                    <script type="module">
-                        import './hello-island.js'
-                    </script>
-                </hello-island>
-
-                <hello-island name="hello-island">
-                    <h3>&lt;hello-island&nbsp;/&gt; self-contained island module</h3>
-                    <p class="my-3">
-                        Count:
-                        <span>0</span>
-                    </p>
-                    <button name="increment">Increment</button>
-                    <button name="decrement">Decrement</button>
-                    <script type="module">
-                        import './hello-island.js'
+                            // Listen for clicks and increment or decrement the stream
+                            k.on('[name="increment"]', 'click', () => {
+                                count$.next(c => c + 1)
+                            })
+                            k.on('[name="decrement"]', 'click', () => {
+                                count$.next(c => c - 1)
+                            })
+                        })
                     </script>
                 </hello-island>
             </div>
